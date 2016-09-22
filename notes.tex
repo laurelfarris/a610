@@ -3,8 +3,8 @@
 \usepackage[margin=1.5in]{geometry}
 \setlength{\marginparwidth}{0.5in}
 \setlength{\parindent}{0em}
-\setlength{\parskip}{2ex}
 \usepackage{graphicx}
+\usepackage{framed}
 \usepackage{tcolorbox}
 %\usepackage{tasks}
 \usepackage{lipsum}
@@ -93,12 +93,8 @@
 %\renewcommand{\labelitemi}{{\tiny$\bullet$}}
 \definecolor{cadet}{rgb}{0.33, 0.41, 0.47}
 \renewcommand{\descriptionlabel}[1]{%
-    \ttfamily\textcolor{cadet}{#1}
-}
+    \ttfamily\textcolor{cadet}{#1}}
 
-
-
-% Verbatim
 \usepackage{fancyvrb}  % framebox around verbatim text
 \makeatletter
 \renewcommand\verbatim@font{\normalfont\small\ttfamily}
@@ -115,8 +111,8 @@
     }
 
 \usepackage{setspace} % spacing between toc items
-\usepackage[toc]{multitoc}
-\renewcommand*{\multicolumntoc}{2}
+%\usepackage[toc]{multitoc}
+%\renewcommand*{\multicolumntoc}{2}
 %\setlength{\columnseprule}{0.5pt}
 
 \usepackage{hyperref}
@@ -128,8 +124,10 @@
 \urlstyle{same}
 
 \begin{document}
+\setlength{\parskip}{0pt}
 \tableofcontents
-
+\setlength{\parskip}{10pt}
+\hypersetup{colorlinks=true, urlcolor=darkpowderblue, linkcolor=darkpowderblue,}
 \reversemarginpar
 
 \newpage
@@ -139,20 +137,229 @@
 \section{Radiation from moving charges}
 \mar{37}
 
+\subsection{Thomson scattering}
+\mar{52}\underline{Process}: response of a free charge (electron) to an
+incident EM wave and subsequent scattering of light by the wave.
+
+\underline{Assumption}: if the charge oscillates at non-relativistic velocities,
+$v \ll c$, then the magnetic force is negligible
+($ \vec{F_{L}} = q (\vec{E} + \cfrac{\vec{v}}{c} \times \vec{B} )  $
+and $ |\vec{E}| = |\vec{B}|$ for EM wave).
+
+Consider a linearly polarized incoming wave:
+
+\mar{53}\textcolor{gray}{Does not appear to exist\ldots}
+
+\mar{54}The incident flux of radiation is:
+\[
+    \langle S \rangle
+    = \frac{c}{8\pi} E_{0}^{2}
+    \]
+
+\begin{framed}
+    \textbf{Thomson cross section for scattering:}
+    \[
+    \sigma_{TH} = \frac{8\pi}{3} r_{0}^{2}
+        \]
+\end{framed}
+
+Note:
+\begin{enumerate}
+    \item $\sigma$ also follows from $P = \langle S \rangle \sigma$
+    \item $\sigma$ is independent of frequency \mynotes{(any type:
+        radio, optical, etc.)}; however, this is only true in the classical
+        case, where $v \ll c$ (see later discussion of Compton scattering).
+    \item $\sigma \propto m^{-2} $, so for a proton, $\sigma$ is about $10^{6}$
+        times smaller than for an electron, hence in a plasma, electrons
+        dominate.
+    \item Thomson scattered light introduces a degree of polarization,
+        which will be a maximum at $90^{\circ}$ to the incoming beam
+        (if the incoming beam is \emph{un}polarized).
+        Degree of polarization:
+        \[
+            \prod = \frac{1-\cos^{2}\theta}{1+\cos^{2}\theta}
+            \]
+        which is equal to 100\% at $90^{\circ}$.
+\end{enumerate}
+
+\subsubsection{Optical depth and Thomson cross section}
+\mar{55}When can we still see an object centered on an ionized nebula, which
+scatters the radiation only through electron scattering?
+
+\subsubsection{Additional comments on Thomson scattering}
+\mar{56}Thomson scattering is a special case of the ``collision'' between
+a photon and an electron. It applies when the energy of the photon is
+small compared to the rest energy of the electron. When this is not the
+case, the situation is analyzed from the perspective of Compton scattering.
+A Compton scattering analysis also takes into effect quantum corrections,
+e.g.\ kinematic effects occur because the photon not only possesses energy
+but also momenutum.\footnote{R/L chapter 7 discusses this in great detail.}
+
+\subsection{Eddington limit}
+\mar{57}Following R/L problem 1.4 parts a \& c:
+\begin{itemize}[label={}]
+    \item a.) ``Show that an optically thin cloud\ldots''
+    \item c.) ``A minimum value for\ldots''
+\end{itemize}
+
+\mar{58}
+
+\mar{59}We essentially have\ldots
+
+\underline{Applications}:
+\begin{itemize}
+    \item There is a limit to how massive a star can be:
+        \[
+            L_{Edd} \sim 1.25 \times 10^{38} \quad
+            \left[
+                \mathrm{erg}\;\mathrm{s}^{-1} \left( \frac{M}{M_{\odot}} \right)
+                \right]
+            \]
+        If $L$ for MS stars scales as $ L \propto M^{x} $, this places a limit
+        on the highest mass star we can have ($\sim$ 100 M$_{\odot}$).
+    \item Accretion on black holes and accretion disks: note that $L_{Edd}$
+        scales linearly with $M$, and is independent of $r$
+\end{itemize}
+
+\subsection{Plasma effects}
+\mar{60}General issue: what happens to EM waves when they travel through
+a plasma?
+
+\mar{61}
+
+\mar{62}
+
+\underline{Application}: \textbf{pulsar dispersion measurements}
+
+A pulsar is a fast spinning neutron star emitting two beams of radiation
+(like a lighthouse). If there is an ionized plasma along the line of sight
+to the pulsar, radiation in the pulse of lower frequency will reach us later
+than high frequency radiation because it is slowed down more by the
+plasma.\footnote{
+    see expression for $v_{ph}$}
+(in a sense, it is scattered more, therefore travels a greater distance).
+
+\subsection{Faraday rotation}
+\mar{69}Basic idea: what happens to radiation (EM wave) travelling through
+a cold plasma if the plasma has a uniform magnetic field in it?
+In particular, what happens to a linearly polarized wave?
+As we will see, the direction of polarization changes!
+
 \newpage
 \section{Fourier transforms and convolutions}
+\mar{F1}References: Bracewell - \textit{The FT and its applications}
+\subsection{Fourier transforms}
+Basic idea goes back to Fourier series, which approximate a general function
+as a sum of sines and cosines of different periods.
+
+A simple example is a vibrating string, which can be represented as:
+\[
+    g(x) = a_{0} + \sum_{1}^{\infty} \left[
+        a_{n}\cos{2 \pi nfx} + b_{n}\sin{2 \pi nfx} \right]
+    \]
+which describes a periodic function $g(x)$ with period $T$ and frequency $f$,
+where
+\[
+    a_{0} = \frac{1}{T} \int_{-\frac{1}{2}T}^{+\frac{1}{2}T}{
+        g(x) \mathrm{d}x}
+    \]
+\[
+    a_{n} = \frac{2}{T} \int_{-\frac{1}{2}T}^{+\frac{1}{2}T}{
+        g(x) \cos{2 \pi nfx} \mathrm{d}x}
+    \]
+etc. The general definition of a fourier transform (FT) is
+\[
+    F(s) = \int_{-\infty}^{+\infty}{
+        f(x) e^{-i2{\pi}xs} \mathrm{d}x }
+    \]
+\[
+    f(x) = \int_{-\infty}^{+\infty}{
+        F(s) e^{+i2{\pi}xs} \mathrm{d}s }
+    \]
+The two transforms are not exactly equivalent because of the $\pm$ sign.
+If this were not present, we would not necessarily get back the original
+$f(x)$ in the second transform.\footnote{See Bracewell.}
+
+Note here the link with the sine and cosine series, since
+\[
+    e^{i\theta} = \cos\theta + i\sin\theta
+    \]
+
+\mar{F2}Other conventions for where to put the $2\pi$ exist:
+\[
+    F(s) = \int_{-\infty}^{\infty}{
+        f(x)e^{-ixs} \mathrm{d}x}
+    \quad\longleftrightarrow\quad
+    f(x) = \frac{1}{2\pi} \int_{-\infty}^{\infty}{
+        F(s)e^{ixs} \mathrm{d}s}
+    \]
+\[
+    F(s) = \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\infty}{
+        f(x)e^{-ixs} \mathrm{d}x}
+    \quad\longleftrightarrow\quad
+    f(x) = \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\infty}{
+        F(s)e^{ixs} \mathrm{d}s}
+    \]
+If $f(x)$ and $F(s)$ are transform pair in our system, then $f(x)$,
+$F \left( \cfrac{s}{2\pi} \right)$ are pair in second system and
+$f \left( \cfrac{x}{\sqrt{2\pi}} \right)$,
+$F \left( \cfrac{s}{\sqrt{2\pi}} \right)$ in third system.
+
+\subsubsection{Symmetry: oddness and evenness}
+Symmetrical function: if $E(x) = E(-x)$, then $E(x)$ is symmetrical,
+or even. If $O(x) = -O(-x)$, then $O(x)$ is an odd function.
+\mar{F3}Verify: sum of an even function and an odd function is typically
+neither even nor odd.
+
+
+\subsection{Complex conjugates}
+\mar{F6}The FT of\ldots
+
+\subsection{Cosine and sine transforms}
+
+\mar{F7}The cosine and
+
+\subsection{Convolution}
+
+\mar{F10}
+
+\subsection{Auto-correlation function}
+
+\subsection{Impulse Symbol}
+\mar{F15}Another somewhat bizarre but useful function is the \textit{impulse
+symbol}. By that we mean an intense, unit-area pulse of length so short that it
+cannot be resolved with a given piece of measuring equipment. Essentially, a
+pulse like this will show up only in integrals (hence its unit-area) and it is
+equivalent to a $\delta$-function, which is the mathematical analog.
+$\delta$-functions permeate (theoretical) physics: point masses, point charges,
+point sources, line sources, surface charges, etc. These things don't exist,
+but your measuring equipment doesn't know this, anything smaller than its
+resolution (in time, space, or frequency), acts as an impulse function, in a
+mathematical sense.
+
+\mar{F24}Properties related to the convolution theorem:
+\begin{enumerate}
+    \item The area under a convolution is equal to the product of the
+        areas under the factors:
+        \[
+            \int_{-\infty}^{\infty} \left( f*g \right) \mathrm{d}x
+            \quad = \quad
+            \left[ \int_{-\infty}^{\infty} f(x)\mathrm{d}x \right]
+            \left[ \int_{-\infty}^{\infty} g(x)\mathrm{d}x \right]
+            \]
+    \item The abscissas of the centers of gravity add:
+        \[
+            \]
+    \item The second moments add if\ldots
+        This has the important consequence that under convolution,
+        typically the variances add.
+\end{enumerate}
 
 \newpage
 \section{Signal processing and receivers: theory}
 
 \newpage
 \section{Practical receiver systems}
-
-\newpage
-\section{Introduction}
-
-\newpage
-\section{Introduction}
 
 \newpage
 \section{Practical aspects of filled aperture antennas}
@@ -228,7 +435,7 @@ We use our approximation that the path of the electron is almost linear.
 $\Delta\vec{v}$ is mainly in $\perp$ direction.
 \[
     \]
-(Use Coulomb force: $ F = m_{e}\cfrac{\Delta{v}}{\Delta{t}} = \cfrac{Ze^{2}}{R^{2}$.)
+(Use Coulomb force: $ F = m_{e}\cfrac{\Delta{v}}{\Delta{t}} = \cfrac{Ze^{2}}{R^{2}}$.)
 
 \subsubsection{Determining the total spectrum}
 
@@ -236,8 +443,9 @@ $\Delta\vec{v}$ is mainly in $\perp$ direction.
 
 \mar{149}
 
-We deal with the $b_{min}, b_{max}$ issue, and the potential importance of quantum effects,
-by introducing the \textbf{Gaunt factor}, $g_{ff}(v,\omega)$, which includes these effects.
+We deal with the $b_{min}, b_{max}$ issue, and the potential importance of
+quantum effects, by introducing the \textbf{Gaunt factor}, $g_{ff}(v,\omega)$,
+which includes these effects.
 \subsubsection{Velocity distribution}
 
 \subsection{Synchrotron radiation}
