@@ -1,0 +1,246 @@
+\documentclass[12pt]{article}
+%\usepackage[left=1in, top=1in, right=1in, bottom=1in]{geometry}
+\usepackage[margin=1.5in]{geometry}
+\setlength{\marginparwidth}{0.5in}
+\setlength{\parindent}{0em}
+\setlength{\parskip}{2ex}
+\usepackage{graphicx}
+\usepackage{tcolorbox}
+%\usepackage{tasks}
+\usepackage{lipsum}
+%\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+%\usepackage{mdwlist}
+\usepackage{xcolor}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}  % Clear all headers and footers (including default page number).
+\renewcommand{\headrulewidth}{0pt}
+\rfoot{\thepage}
+
+\definecolor{mygray}{rgb}{0.43, 0.5, 0.5}
+\usepackage{mathtools}
+\usepackage{ragged2e}
+\newlength\ubwidth
+\newcommand\parunderbrace[2]{%
+    \settowidth\ubwidth{$\quad#1\quad$}
+    \begingroup\color{mygray}\underbrace{\color{black}#1}_{%
+    \parbox{\ubwidth}{\scriptsize\centering#2}}\endgroup
+}
+
+\usepackage[symbol]{footmisc}
+\usepackage{perpage}
+\MakePerPage{footnote}
+%\renewcommand\footnoterule{\rule{\textwidth}{0.4pt}}
+\renewcommand{\footnoterule}{
+  \kern -3pt
+  \hrule width \textwidth height 0.4pt
+  \kern 2pt
+}
+
+\usepackage{marginnote}
+%\renewcommand*{\raggedrightmarginnote}{\centering}
+\renewcommand*{\raggedleftmarginnote}{\centering}
+\newcommand{\mar}[1]{\hspace{0pt}\marginpar{-\textcolor{black}{#1}-}}
+
+\definecolor{notmygreen}{rgb}{0.0, 0.42, 0.24}
+\definecolor{mygreen}{rgb}{0.0, 0.26, 0.15}
+\newcommand{\mynotes}[1]{\textcolor{mygreen}{#1}}
+
+\definecolor{bred}{rgb}{0.8, 0.0, 0.0}
+
+\usepackage{titlesec}
+%\titleformat{<command>}
+%   [<shape>]{<format>}{<label>}{<sep>}{<before-code>}{<after-code>}
+\titleformat{\section}%
+    [hang]
+  {\filcenter\fontsize{16}{18}\selectfont\bfseries} %\filcenter\bfseries\LARGE
+  {\hspace{-0.25in}\arabic{section}.\;}        % label%    {\thesection} %{<label>}
+  {1em}     % sep
+  {}        % before code
+\titleformat{\subsection}%
+  {\filcenter\fontsize{14}{16}\selectfont\bfseries} %\filcenter\bfseries\LARGE
+  {\arabic{section}.\arabic{subsection}\;}
+  {1em}     % sep
+  {}        % before code
+\titleformat{\subsubsection}%
+  {\filcenter\fontsize{13}{15}\selectfont\bfseries\itshape} %\filcenter\bfseries\LARGE
+  {\arabic{section}.\arabic{subsection}.\arabic{subsubsection}\;}        % label%    {\thesection} %{<label>}
+  {1em}     % sep
+  {}        % before code
+
+%\titlespacing*{\section}{-0.5in}{0ex}{0ex}
+%\titlespacing*{\subsection}{0pt}{0.5ex}{-10ex}
+
+\titlespacing*{\paragraph}{0ex}{0ex}{2em}
+%\titlespacing*{\paragraph}{0pt}{1ex}{-2ex}
+
+% Section references
+%\renewcommand{\thesection}{}
+%\renewcommand{\thesubsection}{\arabic{subsection}}
+%\renewcommand{\thesubsubsection}{\arabic{subsubsection}}
+
+%\setcounter{secnumdepth}{1}
+
+\setitemize{itemsep=-1ex, topsep=0ex,}
+\setenumerate{itemsep=-1ex, topsep=0ex,}
+\setdescription{itemsep=0ex, align=right,}
+\renewcommand{\labelitemi}{$\vcenter{\hbox{\footnotesize$\bullet$}}$}
+\renewcommand{\labelitemii}{$\vcenter{\hbox{\footnotesize$\circ$}}$}
+%\renewcommand{\labelitemi}{{\tiny$\bullet$}}
+\definecolor{cadet}{rgb}{0.33, 0.41, 0.47}
+\renewcommand{\descriptionlabel}[1]{%
+    \ttfamily\textcolor{cadet}{#1}
+}
+
+
+
+% Verbatim
+\usepackage{fancyvrb}  % framebox around verbatim text
+\makeatletter
+\renewcommand\verbatim@font{\normalfont\small\ttfamily}
+\makeatother
+
+\usepackage{listings}
+\lstset{% general command to set parameter(s)
+    basicstyle=\small, % print whole listing small
+    keywordstyle=\color{black}\bfseries\underbar,% underlined bold black keywords % nothing happens
+    identifierstyle=,
+    commentstyle=\color{white},
+    stringstyle=\ttfamily,
+    showstringspaces=false % no special string spaces
+    }
+
+\usepackage{setspace} % spacing between toc items
+\usepackage[toc]{multitoc}
+\renewcommand*{\multicolumntoc}{2}
+%\setlength{\columnseprule}{0.5pt}
+
+\usepackage{hyperref}
+\definecolor{darkpowderblue}{rgb}{0.0, 0.2, 0.6}
+\hypersetup{colorlinks=true,
+    urlcolor=darkpowderblue,
+    linkcolor=black % This may be what links the contents in the first place!
+}
+\urlstyle{same}
+
+\begin{document}
+\tableofcontents
+
+\reversemarginpar
+
+\newpage
+\section{Introduction}
+
+\newpage
+\section{Radiation from moving charges}
+\mar{37}
+
+\newpage
+\section{Fourier transforms and convolutions}
+
+\newpage
+\section{Signal processing and receivers: theory}
+
+\newpage
+\section{Practical receiver systems}
+
+\newpage
+\section{Introduction}
+
+\newpage
+\section{Introduction}
+
+\newpage
+\section{Practical aspects of filled aperture antennas}
+
+\newpage
+\section{Single dish observational methods}
+\subsection{Atmosphere}
+\subsection{Calibration procedures}
+\subsection{Continuum observing strategies}
+\subsection{Spectral line observations: additional requirements}
+
+\newpage
+\section{Interferometers and aperture synthesis}
+
+\newpage
+\section{Radiation processes}
+\mar{145}
+\subsection{Bremsstrahlung radiation}
+= free-free radiation\footnote{following: Rybicki \& Lightman, chapter 5.}
+
+Process: ionized plasma, encounters between electrons and ions causes deflections
+of electrons $\rightarrow$ electrons are accelerated and will radiate.
+Under most conditions, velocity distributions of ions and electrons is
+\textit{Maxwellian} - thermal equilibrium (TE) distribution, so this is referred
+to as \textit{thermal Bremsstrahlung}. The word ``Bremsstrahlung'' means
+``braking radiation'', which refers to the slowing down (deceleration) of the
+electrons when approaching from a given direction to the protons/ions. The approach
+will be classical, rather than quantum mechanical; this is valid as long as
+$ kT \sim mv_{e}^{2} \gg h\nu$.
+
+Note: collisions between the same particles produce \emph{no net} dipole radiation
+because dipole moment = $\sum{e_{i}\vec{r}_{i}} \propto \sum{m_{i}\vec{r}_{i}}$.
+The latter is the center of mass, which is either at rest or in constant motion,
+but experiences no \emph{net} acceleration. In other words, each particle moves
+exactly opposite to its partner so that their individual contributions to the
+time-varying electric fields at large distances cancels\footnote{Shu}.
+
+\subsubsection{Emission for single-speed electrons}
+\mar{146}
+Here we consider electron-ion collisions (or rather, \emph{encounters}).
+In these encounters, the electrons radiate primarily since
+$ |\vec{a}| \propto \cfrac{1}{m} $ for equal charges.
+
+\underline{Approximations}:
+\begin{enumerate}
+    \item ion mass $\gg$ electron mass $\rightarrow$ electron moves in \emph{fixed}
+        Coulomb field of ion.
+    \item electron speed is large; in a single encounter, the electron motion barely
+        deviates from its original direction $\rightarrow$ small angle scattering regime
+        (not essential approximation).
+\end{enumerate}
+Take FT, note that\footnote{RL 3.3}
+\begin{align*}
+    FT (\ddot{\vec{d}})
+    &= -\omega^{2} \hat{\vec{d}} (\omega)\\
+    &= -\frac{e}{2\pi} \int_{-\infty}^{\infty}{
+        \dot{\vec{v}} e^{i\omega{t}} \mathrm{d}t }
+\end{align*}
+Derive expressions for $\hat{\vec{d}}(\omega)$ in limits for large and small $\omega$:
+collision time $\tau \equiv \cfrac{b}{v}$.
+
+\mar{147}We had derived before the spectrum of dipole radiation:
+\[
+    \frac{\mathrm{d}W}{\mathrm{d}\omega}
+    = \frac{8\pi\omega^{4}}{3c^{3}} | \hat{d}(\omega) |^{2}
+    \]
+So now we find
+\[
+    \]
+No dependence on $\omega$! (Impulse has flat spectrum).
+\underline{Clearly the task is to estimate $\Delta\vec{v}$}.
+We use our approximation that the path of the electron is almost linear.
+$\Delta\vec{v}$ is mainly in $\perp$ direction.
+\[
+    \]
+(Use Coulomb force: $ F = m_{e}\cfrac{\Delta{v}}{\Delta{t}} = \cfrac{Ze^{2}}{R^{2}$.)
+
+\subsubsection{Determining the total spectrum}
+
+\mar{148}
+
+\mar{149}
+
+We deal with the $b_{min}, b_{max}$ issue, and the potential importance of quantum effects,
+by introducing the \textbf{Gaunt factor}, $g_{ff}(v,\omega)$, which includes these effects.
+\subsubsection{Velocity distribution}
+
+\subsection{Synchrotron radiation}
+\mar{167}
+
+\end{document}
